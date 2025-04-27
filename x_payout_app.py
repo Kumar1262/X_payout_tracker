@@ -24,10 +24,16 @@ st.markdown("""
     }
     .counter-text {
         text-align: center;
-        font-size: min(14vw, 80px);
+        font-size: max(8vw, 32px);
         font-family: monospace;
         color: #222;
         overflow-wrap: break-word;
+        word-break: break-word;
+        margin-bottom: 16px;
+    }
+    h1 {
+        font-size: max(6vw, 28px) !important;
+        margin-bottom: 24px !important;
     }
     div.stButton > button {
         background-color: #1DA1F2;
@@ -38,6 +44,11 @@ st.markdown("""
         border: none;
         border-radius: 10px;
         margin: 20px 0;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
     div.stButton > button:hover {
         background-color: #1a91da;
@@ -74,6 +85,7 @@ st.markdown("""
         div.stButton > button {
             font-size: 16px !important;
             padding: 10px !important;
+            max-width: 100% !important;
         }
         .funny-message {
             font-size: 18px !important;
@@ -84,6 +96,10 @@ st.markdown("""
         }
         .follow-footer {
             font-size: 14px !important;
+        }
+        h1 {
+            font-size: 28px !important;
+            margin-bottom: 16px !important;
         }
     }
     </style>
