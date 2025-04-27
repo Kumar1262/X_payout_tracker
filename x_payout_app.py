@@ -19,8 +19,11 @@ if 'message_shown' not in st.session_state:
 # Responsive CSS for light theme
 st.markdown("""
     <style>
-    .stApp {
-        background-color: #f7f9fa;
+    .counter-flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
     .counter-text {
         text-align: center;
@@ -80,6 +83,9 @@ st.markdown("""
         color: #1DA1F2;
     }
     @media (max-width: 600px) {
+        .counter-flex-container {
+            display: block !important;
+        }
         .counter-text {
             font-size: 32px !important;
             white-space: normal !important;
@@ -203,7 +209,7 @@ st.markdown(
 while True:
     days, hours, minutes, seconds = get_time_diff()
     counter_placeholder.markdown(
-        f"<div class='counter-text'>{days}d {hours}h {minutes}m {seconds}s</div>",
+        f"<div class='counter-flex-container'><div class='counter-text'>{days}d {hours}h {minutes}m {seconds}s</div></div>",
         unsafe_allow_html=True
     )
     time.sleep(1) 
