@@ -24,10 +24,10 @@ st.markdown("""
     }
     .counter-text {
         text-align: center;
-        font-size: 80px;
+        font-size: min(14vw, 80px);
         font-family: monospace;
         color: #222;
-        white-space: nowrap;
+        overflow-wrap: break-word;
     }
     div.stButton > button {
         background-color: #1DA1F2;
