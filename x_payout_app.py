@@ -27,6 +27,7 @@ st.markdown("""
         font-size: max(8vw, 32px);
         font-family: monospace;
         color: #222;
+        white-space: nowrap;
         overflow-wrap: break-word;
         word-break: break-word;
         margin-bottom: 16px;
@@ -81,6 +82,7 @@ st.markdown("""
     @media (max-width: 600px) {
         .counter-text {
             font-size: 32px !important;
+            white-space: normal !important;
         }
         div.stButton > button {
             font-size: 16px !important;
