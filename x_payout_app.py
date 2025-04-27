@@ -16,11 +16,75 @@ if 'message_shown' not in st.session_state:
     st.session_state.message_shown = False
     st.session_state.selected_message = None
 
-# Light theme
+# Responsive CSS for light theme
 st.markdown("""
     <style>
     .stApp {
         background-color: #f7f9fa;
+    }
+    .counter-text {
+        text-align: center;
+        font-size: 80px;
+        font-family: monospace;
+        color: #222;
+        white-space: nowrap;
+    }
+    div.stButton > button {
+        background-color: #1DA1F2;
+        color: white;
+        font-size: 24px;
+        padding: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+    div.stButton > button:hover {
+        background-color: #1a91da;
+    }
+    .funny-message {
+        text-align: center;
+        font-size: 36px;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #e3f2fd;
+        color: #1565c0;
+        border-radius: 10px;
+    }
+    .footer {
+        text-align: center;
+        color: #657786;
+        margin-top: 20px;
+        font-style: italic;
+        font-size: 18px;
+    }
+    .follow-footer {
+        text-align: center;
+        color: #888;
+        margin-top: 10px;
+        font-size: 22px;
+    }
+    .follow-footer b {
+        color: #1DA1F2;
+    }
+    @media (max-width: 600px) {
+        .counter-text {
+            font-size: 32px !important;
+        }
+        div.stButton > button {
+            font-size: 16px !important;
+            padding: 10px !important;
+        }
+        .funny-message {
+            font-size: 18px !important;
+            padding: 10px !important;
+        }
+        .footer {
+            font-size: 12px !important;
+        }
+        .follow-footer {
+            font-size: 14px !important;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -101,23 +165,19 @@ with col2:
 # Display message if button was clicked
 if st.session_state.message_shown and st.session_state.selected_message:
     st.markdown(
-        f"<div style='text-align: center; font-size: 36px; padding: 20px; margin: 20px 0; background-color: #e3f2fd; color: #1565c0; border-radius: 10px;'>{st.session_state.selected_message}</div>",
+        f"<div class='funny-message'>{st.session_state.selected_message}</div>",
         unsafe_allow_html=True
     )
 
 # Footer
 st.markdown(
-    "<div style='text-align: center; color: #657786; margin-top: 20px; font-style: italic;'>Keep waiting... maybe someday! 🤞</div>",
+    "<div class='footer'>Keep waiting... maybe someday! 🤞</div>",
     unsafe_allow_html=True
 )
 
 # Social follow text
 st.markdown(
-    """
-    <div style='text-align: center; color: #888; margin-top: 10px; font-size: 22px;'>
-        Don't forget to hit follow button for <b style='color: #1DA1F2;'>@codersthings</b>
-    </div>
-    """,
+    "<div class='follow-footer'>Don't forget to hit follow button for <b>@codersthings</b></div>",
     unsafe_allow_html=True
 )
 
@@ -125,9 +185,7 @@ st.markdown(
 while True:
     days, hours, minutes, seconds = get_time_diff()
     counter_placeholder.markdown(
-        f"<div style='text-align: center; font-size: 80px; font-family: monospace; color: #222; white-space: nowrap;'>"
-        f"{days}d {hours}h {minutes}m {seconds}s"
-        f"</div>",
+        f"<div class='counter-text'>{days}d {hours}h {minutes}m {seconds}s</div>",
         unsafe_allow_html=True
     )
     time.sleep(1) 
